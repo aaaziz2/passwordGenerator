@@ -23,11 +23,7 @@ function writePassword() {
   charUpp = false;
   charNum = false;
   charSpe = false;
-  // // reset when password button is clicked again adding if time allows
-  // if(document.querySelector("#password").value != "Your Secure Password"){
-  //   document.
-  // }
-  
+   
   // confirmation that password is to be generated
   if(confirm("Do you want generate a password?")){
     // asks user which requirements are necessary
@@ -45,6 +41,7 @@ function writePassword() {
     }
     // make sure user chooses at least one category
     if((charLow == charUpp && charUpp == charNum && charNum == charSpe) && charLow == false){
+      alert("You MUST select at least one requirement. \n Please try again")
       return
     }
     // ask user for password length
@@ -57,24 +54,25 @@ function writePassword() {
       alert("Invalid Length! Please try again")
       return
     }
-    
+    // generate password
     var password = generatePassword()
-
-    console.log(requirement.includes(1))
-
-    console.log(requirement)
-    // run until requirements are met
+    
+    // if password does not meet user requirements regenerate password until it does
     while(requirement.includes(1)){
       password = generatePassword()
     }
 
     var passwordText = document.querySelector("#password");
   }
-  // if cancel is selected the password is not generated
+  // if user hits cancel the password is not generated
   else{
     return
   }
   passwordText.value = password;
+
+  //change button name?
+  generateBtn.value = "Generate new Password"
+
 }
 
 function generatePassword(){
@@ -107,7 +105,10 @@ function generatePassword(){
     
     var currentChar = passSet.charAt(randomChar)
    
-    // check if 
+    // check if the requirement is asked by the user and has not already been fulfilled
+    // 0 means user did not want
+    // 1 means user does want and that requirement has not been met
+    // 2 means it has been met so it does not need to check for it again
     if(requirement[0] == 1){
       if(charLowSet.includes(currentChar)){
         requirement[0]++
