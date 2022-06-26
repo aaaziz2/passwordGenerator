@@ -19,9 +19,9 @@ function writePassword() {
   // if(confirm("Do you want to write a password")){
   //   if(confirm)
   // }
-  else{
-    break
-  }
+  // else{
+  //   return
+  // }
   passwordText.value = password;
   
 }
