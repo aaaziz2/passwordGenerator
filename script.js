@@ -35,18 +35,22 @@ function writePassword() {
 
 function generatePassword(){
   var password = "Dummy#1!"
-  var passSet = ""
+  var passSet = "";
   if(charLow){
-    passSet.concat(charLowSet)
+    passSet = passSet.concat(charLowSet);
+    console.log(passSet);
   }
   if(charUpp){
-    passSet.concat(charLowSet)
+    passSet = passSet.concat(charUppSet);
+    console.log(passSet);
   }
   if(charNum){
-    passSet.concat(charNumSet)
+    passSet = passSet.concat(charNumSet)
+    console.log(passSet)
   }
   if(charSpe){
-    passSet.concat(charSpeSet)
+    passSet = passSet.concat(charSpeSet)
+    console.log(passSet)
   }
 
   // for(i=0;i<passLen;i++){
