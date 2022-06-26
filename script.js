@@ -1,24 +1,33 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//password variables
 var passLen = 8;
 var charLow = false;
 var charUpp = false;
 var charNum = false;
 var charSpe = false;
 
+//password requirement variables
 var charLowSet = "abcdefghijklmnopqrstuvxyz"
-var charUppSet = charLowSet.toUpperCase();
+var charUppSet = charLowSet.toUpperCase()
 var charNumSet = "0123456789"
 var charSpeSet = "!@#$%^&*()\"\'+,-./:;<>=?[]\\_`{}|~"
 
 // Write password to the #password input
 function writePassword() {
+  // // reset when password button is clicked again
+  // if(document.querySelector("#password").value != "Your Secure Password"){
+  //   document.
+  // }
+  
+  // confirmation that password is to be generated
   if(confirm("Do you want generate a password?")){
+    // asks user which requirements are necessary
     if(confirm("Do you want lowercase letters?")){
       charLow = true;
     }
-    if(confirm("Do you want upppercase letters?")){
+    if(confirm("Do you want uppercase letters?")){
       charUpp = true;
     }
     if(confirm("Do you want numbers?")){
@@ -27,11 +36,16 @@ function writePassword() {
     if(confirm("Do you want special characters?")){
       charSpe = true;
     }
-    if((charLow == charUpp == charNum == charSpe) && charLow == false){
-      return;
+    // make sure user chooses at least one category
+    if((charLow == charUpp && charUpp == charNum && charNum == charSpe) && charLow == false){
+      return
     }
-    passLen = prompt("How long do you want your Password? \n Enter a number between 8-128")
-
+    // ask user for password length
+    passLen = prompt("How long do you want your Password? \n Enter a number between 8-128 \n OK for default length of 8")
+    if(passLen == ""){
+      passLen = 8
+    }
+    // makes sure the length is in the correct parameters
     if(passLen<8 || passLen>128){
       alert("Invalid Length! Please try again")
       return
@@ -39,6 +53,7 @@ function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
   }
+  // if cancel is selected the password is not generated
   else{
     return
   }
@@ -46,28 +61,31 @@ function writePassword() {
 }
 
 function generatePassword(){
-  var password = "Dummy#1!"
-  var passSet = "";
+  var password = ""
+  var passSet = ""
   if(charLow){
     passSet = passSet.concat(charLowSet);
-    console.log(passSet);
+    // console.log(passSet);
   }
   if(charUpp){
     passSet = passSet.concat(charUppSet);
-    console.log(passSet);
+    // console.log(passSet);
   }
   if(charNum){
     passSet = passSet.concat(charNumSet)
-    console.log(passSet)
+    // console.log(passSet)
   }
   if(charSpe){
     passSet = passSet.concat(charSpeSet)
-    console.log(passSet)
+    // console.log(passSet)
   }
-
-  // for(i=0;i<passLen;i++){
-
-  // }
+  console.log(passLen)
+  for(i=0;i<passLen;i++){
+    var randomChar = Math.floor(Math.random() * passSet.length)
+    // console.log(randomChar)
+    // console.log(passSet.charAt(randomChar))
+    password += passSet.charAt(randomChar)
+  }
 
   return password
 }
