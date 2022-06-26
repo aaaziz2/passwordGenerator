@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//password variables
+//global password variables
 var passLen = 8;
 var charLow = false;
 var charUpp = false;
@@ -16,7 +16,8 @@ var charSpeSet = "!@#$%^&*()\"\'+,-./:;<>=?[]\\_`{}|~"
 
 // Write password to the #password input
 function writePassword() {
-  // // reset when password button is clicked again
+
+  // // reset when password button is clicked again adding if time allows
   // if(document.querySelector("#password").value != "Your Secure Password"){
   //   document.
   // }
@@ -61,8 +62,10 @@ function writePassword() {
 }
 
 function generatePassword(){
+  // default values of password and set of allowed characters
   var password = ""
   var passSet = ""
+  // depending on what the user entered add to the total set of allowed characters
   if(charLow){
     passSet = passSet.concat(charLowSet);
     // console.log(passSet);
@@ -79,12 +82,24 @@ function generatePassword(){
     passSet = passSet.concat(charSpeSet)
     // console.log(passSet)
   }
-  console.log(passLen)
+  // making sure that the password is correct length per user request for debugging
+  // console.log(passLen)
+
+  // Adding random characters from the total allowed characters
   for(i=0;i<passLen;i++){
+    // generate random number between 0 and the full length of the password character set
     var randomChar = Math.floor(Math.random() * passSet.length)
+    
     // console.log(randomChar)
     // console.log(passSet.charAt(randomChar))
+    
+    // add the random char to the password
     password += passSet.charAt(randomChar)
+  }
+
+  // Check to make sure all characters are included !!needs work
+  for(j=0; j<password.length; j++){
+
   }
 
   return password
