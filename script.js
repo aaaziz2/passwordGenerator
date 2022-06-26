@@ -66,6 +66,7 @@ function writePassword() {
   }
   // if user hits cancel the password is not generated
   else{
+    alert("Why would you click the button?")
     return
   }
   passwordText.value = password;
@@ -101,7 +102,7 @@ function generatePassword(){
   for(i=0;i<passLen;i++){
     // generate random number between 0 and the full length of the password character set
     var randomChar = Math.floor(Math.random() * passSet.length)
-    
+    // select the random character based on the number previous generated
     var currentChar = passSet.charAt(randomChar)
    
     // check if the requirement is asked by the user and has not already been fulfilled
