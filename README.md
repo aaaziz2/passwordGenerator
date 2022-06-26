@@ -18,9 +18,9 @@ When the password is generated it is written to the page
 
 ## Screenshots
 
-![password screengrab](Images/default.png)
+![password screengrab](images/default.png)
 
-![password screengrab](Images/generated.png)
+![password screengrab](images/generated.png)
 
 ## Links
 
