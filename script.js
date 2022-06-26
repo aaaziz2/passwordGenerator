@@ -70,9 +70,8 @@ function writePassword() {
   }
   passwordText.value = password;
 
-  //change button name?
-  generateBtn.value = "Generate new Password"
-
+  //change button name after generating a password
+  generateBtn.textContent = "Generate New Password"
 }
 
 function generatePassword(){
