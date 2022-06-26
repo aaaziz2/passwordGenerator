@@ -27,8 +27,14 @@ function writePassword() {
     if(confirm("Do you want special characters?")){
       charSpe = true;
     }
+    if((charLow && charUpp && charNum && charSpe) == false){
+      return;
+    }
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
+  }
+  else{
+    return
   }
   passwordText.value = password;
 }
