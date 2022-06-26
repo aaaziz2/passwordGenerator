@@ -57,11 +57,6 @@ function writePassword() {
     // generate password
     var password = generatePassword()
     
-    // if password does not meet user requirements regenerate password until it does
-    while(requirement.includes(1)){
-      password = generatePassword()
-    }
-
     var passwordText = document.querySelector("#password");
   }
   // if user hits cancel the password is not generated
@@ -132,6 +127,11 @@ function generatePassword(){
     
     // add the random char to the password
     password += currentChar
+  }
+
+  // if password does not meet user requirements regenerate password until it does
+  while(requirement.includes(1)){
+    password = generatePassword()
   }
 
   return password
