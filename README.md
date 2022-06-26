@@ -2,7 +2,7 @@
 
 ## The Task
 
-Given a webpage with HTML, CSS, write the needed Javascript to generate a password meeting the users requirements.
+Given a webpage with starter code including finished HTML and CSS; write the needed Javascript to generate a password meeting the users requirements.
 
 ## Acceptance Criteria
 
