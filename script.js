@@ -27,8 +27,14 @@ function writePassword() {
     if(confirm("Do you want special characters?")){
       charSpe = true;
     }
-    if((charLow && charUpp && charNum && charSpe) == false){
+    if((charLow == charUpp == charNum == charSpe) && charLow == false){
       return;
+    }
+    passLen = prompt("How long do you want your Password? \n Enter a number between 8-128")
+
+    if(passLen<8 || passLen>128){
+      alert("Invalid Length! Please try again")
+      return
     }
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
